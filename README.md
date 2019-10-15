@@ -19,6 +19,14 @@ app = create_app(env='dev')  # build a flask app suitable for dev environment
 app.run(port=5000, debug=True)  # run with desired flags
 ```
 
+or,
+
+```python
+from heimdall import create_app
+
+create_app(env='prod').run()
+```
+
 ## Contributing
 
 Not open for now. Need some cleanup first.
