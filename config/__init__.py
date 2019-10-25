@@ -1,9 +1,9 @@
-from config.local import Config as LocalConfig
-from config.dev import Config as DevConfig
-from config.prod import Config as ProdConfig
+from config.local import get_local_config
+from config.dev import get_dev_config
+from config.prod import get_prod_config
 
 
 class Config:
-    local = LocalConfig
-    dev = DevConfig
-    prod = ProdConfig
+    local = get_local_config
+    dev = get_dev_config
+    prod = get_prod_config

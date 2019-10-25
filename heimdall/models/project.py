@@ -9,12 +9,14 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     organization = db.Column(db.String(255), unique=True, nullable=False)
     repository = db.Column(db.String(255), unique=True, nullable=False)
-    registrar = db.Column(db.String(120), unique=False, nullable=True, default="unknown")
+    registrar = db.Column(
+        db.String(120), unique=False, nullable=True, default="unknown"
+    )
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     __table_args__ = (
-        db.UniqueConstraint("organization", "repository", name='_org_repo_uniq'),
-        {"schema": "heimdall"}
+        db.UniqueConstraint("organization", "repository", name="_org_repo_uniq"),
+        {"schema": "heimdall"},
     )
 
     def __repr__(self):
